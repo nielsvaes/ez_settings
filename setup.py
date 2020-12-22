@@ -13,7 +13,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/nielsvaes/ez_settings",
-    install_requires=['json'],
+    install_requires=[],
     packages=setuptools.find_packages(),
     classifiers=[
         "Operating System :: OS Independent",
