@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
     print(settings.get_setting_with_value(True))
 
-    print(settings.value_exists("Tom Brady"))
+    print(settings.exists("Tom Brady"))
 
     dict_value = {
                   "apple": 5,
