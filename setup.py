@@ -1,4 +1,3 @@
-import sys
 import setuptools
 
 with open("README.md", "r") as fh:
@@ -6,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="ez_settings",
-    version="1.0.0",
+    version="1.0.1",
     author="Niels Vaes",
     license='MIT',
     author_email="nielsvaes@gmail.com",
