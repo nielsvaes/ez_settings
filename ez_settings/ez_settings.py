@@ -1,7 +1,15 @@
 import os
 import json
 
-class EZSettings(object):
+class Singleton(type):
+    _instances = {}
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+        return cls._instances[cls]
+
+
+class EZSettingsBase(object):
     def __init__(self, file_location=""):
         """
         Initializer
@@ -145,3 +153,16 @@ class EZSettings(object):
     def __save_json(self):
         with open(self.__file_location, 'w+') as outfile:
             json.dump(self.__settings_dictionary, outfile, indent=4)
+
+
+class EZSettingsPy2(EZSettingsBase):
+    __meta_class__ = Singleton
+    def __init__(self, file_location=""):
+        super(EZSettingsPy2, self).__init__(file_location=file_location)
+
+
+class EZSettings(EZSettingsBase, metaclass=Singleton):
+    def __init__(self, file_location=""):
+        super().__init__(file_location=file_location)
+
+

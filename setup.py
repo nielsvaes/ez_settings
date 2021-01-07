@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="ez_settings",
-    version="1.0.1",
+    version="1.0.2",
     author="Niels Vaes",
     license='MIT',
     author_email="nielsvaes@gmail.com",
