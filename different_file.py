@@ -1,4 +1,4 @@
-from ez_settings.ez_settings import EZSettings
+from ez_settings import EZSettings
 
 class ClassThatNeedsSettings(object):
     def __init__(self):

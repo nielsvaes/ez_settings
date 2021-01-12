@@ -1,4 +1,4 @@
-from ez_settings.ez_settings import EZSettings
+from ez_settings import EZSettings
 from different_file import ClassThatNeedsSettings
 
 

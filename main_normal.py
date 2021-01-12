@@ -1,4 +1,4 @@
-from ez_settings.ez_settings import EZSettings
+from ez_settings.ez_settings_base import EZSettings
 from pathlib import Path
 
 # Get a reference to our settings object

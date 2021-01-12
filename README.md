@@ -13,7 +13,7 @@ Let's look at the `Base` way first:
 ### Initializing
 
 ```python
-from ez_settings.ez_settings import EZSettingsBase
+from ez_settings.ez_settings_base import EZSettingsBase
 
 settings = EZSettingsBase("/home/applications/my_app/settings.json")
 ```
@@ -23,13 +23,16 @@ settings = EZSettingsBase("/home/applications/my_app/settings.json")
 I like to make simple classes to store setting names, just because it makes it easier to autocomplete when writing code. You can also just pass in a normal string in the `set` and `get` functions.
 
 ```python
-from ez_settings.ez_settings import EZSettingsBase
+from ez_settings.ez_settings_base import EZSettingsBase
+
+
 class Settings:
-    NAME =            "name"
-    POSITION =        "position"
-    SUPERBOWL_WINS =  "superbowl_wins"
-    TEAMS  =          "teams"
-    ACTIVE  =         "active"
+    NAME = "name"
+    POSITION = "position"
+    SUPERBOWL_WINS = "superbowl_wins"
+    TEAMS = "teams"
+    ACTIVE = "active"
+
 
 settings = EZSettingsBase("/home/applications/my_app/settings.json")
 
@@ -41,13 +44,16 @@ settings.set(Settings.SUPERBOWL_WINS, 5)
 ### Getting values
 
 ```python
-from ez_settings.ez_settings import EZSettingsBase
+from ez_settings.ez_settings_base import EZSettingsBase
+
+
 class Settings:
-    NAME =            "name"
-    POSITION =        "position"
-    SUPERBOWL_WINS =  "superbowl_wins"
-    TEAMS  =          "teams"
-    ACTIVE  =         "active"
+    NAME = "name"
+    POSITION = "position"
+    SUPERBOWL_WINS = "superbowl_wins"
+    TEAMS = "teams"
+    ACTIVE = "active"
+
 
 settings = EZSettingsBase("/home/applications/my_app/settings.json")
 
@@ -60,13 +66,16 @@ championships = settings.get(Settings.SUPERBOWL_WINS)
 You can append or pop items if the value of your setting is a list
 
 ```python
-from ez_settings.ez_settings import EZSettingsBase
+from ez_settings.ez_settings_base import EZSettingsBase
+
+
 class Settings:
-    NAME =            "name"
-    POSITION =        "position"
-    SUPERBOWL_WINS =  "superbowl_wins"
-    TEAMS  =          "teams"
-    ACTIVE  =         "active"
+    NAME = "name"
+    POSITION = "position"
+    SUPERBOWL_WINS = "superbowl_wins"
+    TEAMS = "teams"
+    ACTIVE = "active"
+
 
 settings = EZSettingsBase("/home/applications/my_app/settings.json")
 
@@ -84,13 +93,16 @@ settings.pop(Settings.TEAMS, "New England")
 ### Deleting a single setting
 
 ```python
-from ez_settings.ez_settings import EZSettingsBase
+from ez_settings.ez_settings_base import EZSettingsBase
+
+
 class Settings:
-    NAME =            "name"
-    POSITION =        "position"
-    SUPERBOWL_WINS =  "superbowl_wins"
-    TEAMS  =          "teams"
-    ACTIVE  =         "active"
+    NAME = "name"
+    POSITION = "position"
+    SUPERBOWL_WINS = "superbowl_wins"
+    TEAMS = "teams"
+    ACTIVE = "active"
+
 
 settings = EZSettingsBase("/home/applications/my_app/settings.json")
 settings.remove(Settings.POSITION)
@@ -99,7 +111,7 @@ settings.remove(Settings.POSITION)
 ### Wiping all settings
 
 ```python
-from ez_settings.ez_settings import EZSettingsBase
+from ez_settings.ez_settings_base import EZSettingsBase
 
 settings = EZSettingsBase("/home/applications/my_app/settings.json")
 settings.reset()
@@ -107,7 +119,7 @@ settings.reset()
 ### Checking if a setting exists
 
 ```python
-from ez_settings.ez_settings import EZSettingsBase
+from ez_settings.ez_settings_base import EZSettingsBase
 
 settings = EZSettingsBase("/home/applications/my_app/settings.json")
 settings.exists("Injuries")
@@ -119,7 +131,7 @@ settings.exists("Injuries")
 Now let's do the exact same thing, just using the Singleton method
 
 ```python
-from ez_settings.ez_settings import EZSettings
+from ez_settings.ez_settings_base import EZSettings
 from different_file import ClassThatNeedsSettings
 
 from pathlib import Path
@@ -128,12 +140,14 @@ from pathlib import Path
 # EZSettings from anywhere in our program to get the object that's set up in this line.
 EZSettings(Path.home() / "deleteme" / "settings.json")
 
+
 class Settings:
     NAME = "name"
     POSITION = "position"
     SUPERBOWL_WINS = "superbowl_wins"
     TEAMS = "teams"
     ACTIVE = "active"
+
 
 if __name__ == "__main__":
     # set some string values
@@ -171,13 +185,13 @@ if __name__ == "__main__":
 
     # set and get a dictionary value
     dict_value = {
-                  "apple": 5,
-                  "other_dict":
-                      {
-                          "playstation": 5,
-                          "xbox": 360
-                      }
-                  }
+        "apple": 5,
+        "other_dict":
+            {
+                "playstation": 5,
+                "xbox": 360
+            }
+    }
 
     EZSettings().set("dict", dict_value)
     print(EZSettings().get_setting_with_value(5))
@@ -187,8 +201,10 @@ if __name__ == "__main__":
 Let's add another file to our program, with a class and a function that gets the `name` setting from our settings
 
 _> different_file.py_
+
 ```python
-from ez_settings.ez_settings import EZSettings
+from ez_settings.ez_settings_base import EZSettings
+
 
 class ClassThatNeedsSettings(object):
     def __init__(self):

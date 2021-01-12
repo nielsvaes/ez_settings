@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 
 class Singleton(type):
@@ -156,13 +157,10 @@ class EZSettingsBase(object):
 
 
 class EZSettingsPy2(EZSettingsBase):
-    __meta_class__ = Singleton
+    __metaclass__ = Singleton
     def __init__(self, file_location=""):
         super(EZSettingsPy2, self).__init__(file_location=file_location)
 
 
-class EZSettings(EZSettingsBase, metaclass=Singleton):
-    def __init__(self, file_location=""):
-        super().__init__(file_location=file_location)
 
 
