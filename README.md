@@ -7,7 +7,7 @@ It works in "base" mode, where you make an object of the `EZSettingsBase` class 
 
 
 
-##EZSettingsBAse
+## EZSettingsBAse
 Let's look at the `Base` way first:
 
 ### Initializing
