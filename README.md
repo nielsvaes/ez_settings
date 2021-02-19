@@ -12,10 +12,11 @@ Let's look at the `Base` way first:
 
 ### Initializing
 
+You can provide a path where you want the settings file to be
 ```python
-from ez_settings.ez_settings_base import EZSettingsBase
+from ez_settings import EZSettings
 
-settings = EZSettingsBase("/home/applications/my_app/settings.json")
+settings = EZSettings("/home/applications/my_app/settings.json")
 ```
 
 ### Setting values
