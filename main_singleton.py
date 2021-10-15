@@ -1,12 +1,10 @@
 from ez_settings import EZSettings
 from different_file import ClassThatNeedsSettings
-
-
-from pathlib import Path
+import os
 
 # set up the path to save the settings. Since this is of metaclass Singleton, we can now just always call
 # EZSettings from anywhere in our program to get the object that's set up in this line.
-EZSettings(Path.home() / "deleteme" / "settings.json")
+EZSettings(os.path.join(os.path.expanduser("~"), "tom_brady.json"))
 
 class Settings:
     NAME = "name"

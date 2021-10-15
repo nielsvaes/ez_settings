@@ -1,5 +1,6 @@
 import os
-import sys
+from random import randint
+import shutil
 import json
 
 class Singleton(type):
@@ -20,7 +21,12 @@ class EZSettingsBase(object):
         self.__file_location = file_location
         if os.path.exists(self.__file_location):
             with open(file_location) as f:
-                self.__settings_dictionary = json.load(f)
+                try:
+                    self.__settings_dictionary = json.load(f)
+                except:
+                    print("err")
+                    shutil.copyfile(self.__file_location, self.__file_location + "_" + str(randint(10000, 99999)) + ".bak")
+                    self.__settings_dictionary = {}
         else:
             self.__settings_dictionary = {}
             dir_name = os.path.dirname(self.__file_location)

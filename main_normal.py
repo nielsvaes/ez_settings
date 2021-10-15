@@ -1,8 +1,8 @@
-from ez_settings.ez_settings_base import EZSettings
-from pathlib import Path
+from ez_settings import EZSettings
+import os
 
 # Get a reference to our settings object
-settings_obj = EZSettings(Path.home() / "deleteme" / "settings.json")
+settings_obj = EZSettings(os.path.join(os.path.expanduser("~"), "tom_brady.json"))
 
 class Settings:
     NAME = "name"
